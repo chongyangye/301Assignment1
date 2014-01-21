@@ -22,6 +22,7 @@ public class CreateName extends MainActivity {
 		factorOne = (TextView)findViewById(R.id.factorOne);
 		buttonSave = (Button)findViewById(R.id.buttonSave);
 		
+		
 		factorOne.setText("Create Name");
 		buttonSave.setText("Save");
 		buttonSave.setOnClickListener(new buttonSaveListener());
@@ -33,10 +34,12 @@ public class CreateName extends MainActivity {
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
 			String titleStr = title.getText().toString();
-			Intent intent1=new Intent();
-			intent1.putExtra("one", titleStr);
-			intent1.setClass(CreateName.this, CreateButton.class);
-			CreateName.this.startActivity(intent1);
+			Intent intent3 = getIntent();
+			int Num = intent3.getIntExtra("num", 0);
+			intent3.putExtra("one", titleStr);
+			intent3.putExtra("two", Num);
+			intent3.setClass(CreateName.this, CreateButton.class);
+			CreateName.this.startActivity(intent3);
 			
 		}
 		

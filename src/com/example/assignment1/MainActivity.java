@@ -10,6 +10,7 @@ import android.widget.Button;
 
 public class MainActivity extends Activity {
 	private Button myButton = null;
+	int clickedd=0;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -30,7 +31,8 @@ public class MainActivity extends Activity {
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
-			Intent intent =new Intent();
+			Intent intent=new Intent();
+			intent.putExtra("num",clickedd);
 			intent.setClass(MainActivity.this, CreateName.class);
 			MainActivity.this.startActivity(intent);
 			}

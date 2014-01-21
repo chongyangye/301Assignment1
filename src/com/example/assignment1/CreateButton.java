@@ -22,6 +22,7 @@ public class CreateButton extends MainActivity{
 		setContentView(R.layout.create);
 		titleView1=(TextView)findViewById(R.id.titleView);
 		Intent intent2 = getIntent();
+		clicked =intent2.getIntExtra("two", clicked);
 		String titleStr = intent2.getStringExtra("one");
 		titleView1.setText(titleStr);
 		
