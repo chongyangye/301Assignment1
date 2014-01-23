@@ -1,5 +1,6 @@
 package com.example.assignment1;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,6 +9,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class CreateName extends MainActivity {
 	private EditText title;
@@ -34,13 +36,18 @@ public class CreateName extends MainActivity {
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
 			String titleStr = title.getText().toString();
-			Intent intent3 = getIntent();
-			int Num = intent3.getIntExtra("num", 0);
-			intent3.putExtra("one", titleStr);
-			intent3.putExtra("two", Num);
-			intent3.setClass(CreateName.this, CreateButton.class);
-			CreateName.this.startActivity(intent3);
-			
+			if (titleStr.equals("")){
+				Toast.makeText(CreateName.this,
+                        "can't be empty!", Toast.LENGTH_SHORT)
+                        .show();
+			}else{
+				Intent intent3 = getIntent();
+				int Num = intent3.getIntExtra("num", 0);
+				intent3.putExtra("one", titleStr);
+				intent3.putExtra("two", Num);
+				intent3.setClass(CreateName.this, CreateButton.class);
+				CreateName.this.startActivity(intent3);
+			}
 		}
 		
 	}

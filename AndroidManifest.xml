@@ -25,6 +25,7 @@
         <activity android:name=".CreateName"/>
         <activity android:name=".CreateButton"/>
         <activity android:name=".ReName"/>
+        <activity android:name=".CreateBut"/>
     </application>
 
 </manifest>

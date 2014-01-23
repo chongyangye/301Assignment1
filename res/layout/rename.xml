@@ -31,7 +31,8 @@
         android:layout_alignLeft="@+id/buttonSave1"
         android:layout_alignParentTop="true"
         android:layout_marginTop="57dp"
-        android:ems="10" >
+        android:ems="10" 
+        android:singleLine="true">
 
         <requestFocus />
     </EditText>

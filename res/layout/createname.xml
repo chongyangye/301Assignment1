@@ -15,7 +15,8 @@
         android:id="@+id/title"
         android:layout_width="fill_parent"
         android:layout_height="47dp"
-        android:ems="10" />
+        android:ems="10" 
+        android:singleLine="true"/>
 
     <Button
         android:id="@+id/buttonSave"

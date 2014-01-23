@@ -8,6 +8,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ReName extends CreateButton {
 	private EditText title1;
@@ -37,11 +38,17 @@ public class ReName extends CreateButton {
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
 			String titleStr1 = title1.getText().toString();
-			Intent intent4 = new Intent();
-			intent4.putExtra("one", titleStr1);
-			intent4.putExtra("two", clicke);
-			intent4.setClass(ReName.this, CreateButton.class);
-			ReName.this.startActivity(intent4);
+			if (titleStr1.equals("")){
+				Toast.makeText(ReName.this,
+                        "can't be empty!", Toast.LENGTH_SHORT)
+                        .show();
+			}else{
+				Intent intent4 = new Intent();
+				intent4.putExtra("one", titleStr1);
+				intent4.putExtra("two", clicke);
+				intent4.setClass(ReName.this, CreateButton.class);
+				ReName.this.startActivity(intent4);
+			}
 		}
 		
 	}
