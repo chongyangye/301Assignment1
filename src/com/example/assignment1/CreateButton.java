@@ -24,7 +24,7 @@ import android.widget.TextView;
 
 public class CreateButton extends Activity{
 
-	private static final String FILENAME = "file1.sav";
+	private static final String FILENAME = "file5.sav";
 	int clicked =0;
 	//private EditText bodyText;
 	private ListView oldTweetsList;
@@ -118,7 +118,7 @@ public class CreateButton extends Activity{
 		try {
 			FileOutputStream fos = openFileOutput(FILENAME,
 					Context.MODE_APPEND);
-			fos.write(new String(date.toString() + " | " + text+"\n")
+			fos.write(new String(text + " | " + date.toString()+"\n")
 					.getBytes());
 			fos.close();
 		} catch (FileNotFoundException e) {
