@@ -22,10 +22,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CreateName"/>
-        <activity android:name=".CreateButton"/>
-        <activity android:name=".ReName"/>
-        <activity android:name=".CreateBut"/>
+        <activity android:name="com.example.assignment1.CreateName" />
+        <activity android:name="com.example.assignment1.CreateButton" />
+        <activity android:name="com.example.assignment1.ReName" />
+        <activity android:name="com.example.assignment1.CreateBut" />
+        <activity
+            android:name="com.example.assignment1.PreBut"
+            android:label="@string/title_activity_pre_but" >
+        </activity>
     </application>
 
 </manifest>

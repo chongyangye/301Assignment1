@@ -13,5 +13,14 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp" />
+
+    <Button
+        android:id="@+id/buttonPre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/myButton"
+        android:layout_alignRight="@+id/myButton"
+        android:layout_below="@+id/myButton"
+        android:layout_marginTop="45dp" />
     
 </RelativeLayout>
