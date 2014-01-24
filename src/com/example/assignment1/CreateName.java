@@ -17,7 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class CreateName extends MainActivity {
-	private static final String FILENAME = "file5.sav";
+	private static final String FILENAME = "file6.sav";
 	private EditText title;
 	private TextView factorOne;
 	private Button buttonSave;

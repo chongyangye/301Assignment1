@@ -3,9 +3,32 @@ package com.example.assignment1;
 import java.util.Date;
 
 public class DataObject {
-	public String toString(String clik, Date date1){
-		
-		return null;
+	private String name;
+	private Date date1;
+	private int cliced;
+	public  DataObject(String clikName, Date date, int clicked){
+		this.cliced=clicked;
+		this.name=clikName;
+		this.date1=date;
+	}
+	
+	
+	public void clikName(String nam){
+		this.name=nam;
+	}
+	public Date date2(){
+		return date1;
 		
 	}
+	public int clic(){
+		
+		return cliced;
+		
+	}
+	@Override
+	public String toString(){
+		return this.name+" | "+this.date1.toString()+" | "+this.cliced;
+		
+	}
+	
 }
