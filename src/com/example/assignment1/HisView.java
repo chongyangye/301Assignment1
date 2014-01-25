@@ -13,8 +13,8 @@ public class HisView {
 	}
 	
 	
-	public void clikName(String nam){
-		this.name=nam;
+	public  String clikName(){
+		return name;
 	}
 	public Date date2(){
 		return date1;

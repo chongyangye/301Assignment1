@@ -22,8 +22,6 @@ public class PreBut extends Activity {
 	private static final String FILENAME = "file6.sav";
 	private TextView titleB;
 	private ListView listB;
-	private String[] printListName;
-	private String[] printListNum;
 	private Gson gson = new Gson();
 	private ArrayList<HisView> tweets;
 	private ArrayAdapter<HisView> adapter;
@@ -43,7 +41,7 @@ public class PreBut extends Activity {
 		super.onStart();
 		loadFromFile();
 		adapter = new ArrayAdapter<HisView>(this,
-				R.layout.list_item, tweets);
+				R.layout.list_item, useOnly);
 		listB.setAdapter(adapter);
 	}
 
@@ -60,12 +58,24 @@ public class PreBut extends Activity {
 				System.out.println(line);
 				HisView json=gson.fromJson(line, HisView.class);
 				useOnly.add(json);
-		
+				tweets.add(json);
 				line = in.readLine();
 			}
-			int index=0;
-			while(index<useOnly.size()){
-				
+			//remove duplicate
+			for(int i=0;i<useOnly.size();i++){
+				for(int j=0;j<tweets.size();j++){
+					if(useOnly.get(i).clikName().equals(tweets.get(j).clikName())){
+						if(useOnly.get(i).clic()==tweets.get(j).clic()){
+							continue;
+						}else{
+							if(useOnly.get(i).clic()<tweets.get(j).clic()){
+								useOnly.remove(useOnly.get(i));
+							}else{
+								//useOnly.remove(useOnly.get(j));
+							}
+						}
+					}
+				}
 			}
 
 		} catch (FileNotFoundException e) {
