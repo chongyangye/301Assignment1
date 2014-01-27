@@ -30,6 +30,7 @@ public class HisView {
 		return this.name+" | "+this.cliced;
 		
 	}
+
 	
 }
 

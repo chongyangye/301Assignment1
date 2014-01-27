@@ -26,6 +26,7 @@ public class PreBut extends Activity {
 	private ArrayList<HisView> tweets;
 	private ArrayAdapter<HisView> adapter;
 	private ArrayList<HisView> useOnly;
+	private ArrayList<HisView> useList;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -41,7 +42,7 @@ public class PreBut extends Activity {
 		super.onStart();
 		loadFromFile();
 		adapter = new ArrayAdapter<HisView>(this,
-				R.layout.list_item, useOnly);
+				R.layout.list_item, useList);
 		listB.setAdapter(adapter);
 	}
 
@@ -76,6 +77,25 @@ public class PreBut extends Activity {
 						}
 					}
 				}
+			}
+			//sort
+			//useList=new ArrayList<HisView>() ;
+			useList=new ArrayList<HisView>() ;
+			int i=0;
+			while(i<useOnly.size()){
+				int min=0;
+				int minNum=useOnly.get(i).clic();
+				int j=0;
+				while(j<useOnly.size()){
+					if(useOnly.get(j).clic()<=minNum){
+						min=j;
+						minNum=useOnly.get(j).clic();
+					}
+					j++;
+				}
+				useList.add(useOnly.get(min));
+				useOnly.remove(useOnly.get(min));
+				j--;
 			}
 
 		} catch (FileNotFoundException e) {
