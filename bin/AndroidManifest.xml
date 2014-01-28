@@ -30,6 +30,10 @@
             android:name="com.example.assignment1.PreBut"
             android:label="@string/title_activity_pre_but" >
         </activity>
+        <activity
+            android:name="com.example.assignment1.EmptyFile"
+            android:label="@string/title_activity_empty_file" >
+        </activity>
     </application>
 
 </manifest>

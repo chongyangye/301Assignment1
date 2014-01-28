@@ -13,13 +13,18 @@ import com.google.gson.Gson;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 public class PreBut extends Activity {
 	private static final String FILENAME = "file6.sav";
+	private int putNum=0;
 	private TextView titleB;
 	private ListView listB;
 	private Gson gson = new Gson();
@@ -34,7 +39,22 @@ public class PreBut extends Activity {
 		titleB=(TextView)findViewById(R.id.textViewHis);
 		titleB.setText("History of Buttons");
 		listB=(ListView)findViewById(R.id.listViewHis);
+		listB.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+					long arg3) {
+				// TODO Auto-generated method stub
+				putNum = useList.get(arg2).clic();
+				
+				Intent intt = new Intent();
+				intt.putExtra("one", useList.get(arg2).clikName());
+				intt.putExtra("two", putNum);
+				intt.setClass(PreBut.this, CreateButton.class);
+				PreBut.this.startActivity(intt);
+			}
 		
+		});
 	}
 	@Override
 	protected void onStart() {
@@ -42,7 +62,7 @@ public class PreBut extends Activity {
 		super.onStart();
 		loadFromFile();
 		adapter = new ArrayAdapter<HisView>(this,
-				R.layout.list_item, useList);
+				R.layout.list_item, useOnly);
 		listB.setAdapter(adapter);
 	}
 
@@ -51,8 +71,8 @@ public class PreBut extends Activity {
 		useOnly = new ArrayList<HisView>();
 		try {
 			FileInputStream fis = openFileInput(FILENAME);
-			 
 			BufferedReader in = new BufferedReader(new InputStreamReader(fis));
+		
 			String line = in.readLine();
 			
 			while (line != null) {
@@ -66,15 +86,12 @@ public class PreBut extends Activity {
 			for(int i=0;i<useOnly.size();i++){
 				for(int j=0;j<tweets.size();j++){
 					if(useOnly.get(i).clikName().equals(tweets.get(j).clikName())){
-						if(useOnly.get(i).clic()==tweets.get(j).clic()){
-							continue;
-						}else{
 							if(useOnly.get(i).clic()<tweets.get(j).clic()){
 								useOnly.remove(useOnly.get(i));
 							}else{
 								//useOnly.remove(useOnly.get(j));
 							}
-						}
+						
 					}
 				}
 			}

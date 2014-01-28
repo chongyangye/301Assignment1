@@ -6,6 +6,10 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+
+import com.google.gson.Gson;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -21,6 +25,8 @@ public class CreateName extends MainActivity {
 	private EditText title;
 	private TextView factorOne;
 	private Button buttonSave;
+	private ArrayList<DataObject> tweetss;
+	private Gson gson = new Gson();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -36,21 +42,22 @@ public class CreateName extends MainActivity {
 		buttonSave.setOnClickListener(new buttonSaveListener());
 		
 	}
-	private boolean loadFromFile(String titleStr) {
+	private void loadFromFile() {
+		tweetss = new ArrayList<DataObject>();
 		try {
 			FileInputStream fis = openFileInput(FILENAME);
+			 
 			BufferedReader in = new BufferedReader(new InputStreamReader(fis));
 			String line = in.readLine();
-				
+			
 			while (line != null) {
-				String[] breakDownMsg = line.split(" | ");
-				
-				
-                if(breakDownMsg[0].toString().equals(titleStr)){
-                	return false;
-                }
-                line = in.readLine();
+				System.out.println(line);
+				DataObject json=gson.fromJson(line, DataObject.class);
+				tweetss.add(json);
+		
+				line = in.readLine();
 			}
+			
 
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -59,7 +66,7 @@ public class CreateName extends MainActivity {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return true;
+		//return tweets.toArray(new String[tweets.size()]);
 	}
 	class buttonSaveListener implements OnClickListener{
 
@@ -67,24 +74,30 @@ public class CreateName extends MainActivity {
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
 			String titleStr = title.getText().toString();
-			if (titleStr.equals("")){
+			loadFromFile();
+			int checkFile=0;
+			for(int i=0;i<tweetss.size();i++){
+				if(tweetss.get(i).clikName().equals(titleStr)){
+					checkFile=1;
+				}
+			}
+			if(checkFile==1){
+				Toast.makeText(CreateName.this,
+                        "can't be the same!", Toast.LENGTH_SHORT)
+                        .show();
+			}
+			else if (titleStr.equals("")){
 				Toast.makeText(CreateName.this,
                         "can't be empty!", Toast.LENGTH_SHORT)
                         .show();
 			}else{
-				boolean cor=loadFromFile(titleStr);
-				if(cor ==true){
 					Intent intent3 = getIntent();
 					int Num = intent3.getIntExtra("num", 0);
 					intent3.putExtra("one", titleStr);
 					intent3.putExtra("two", Num);
 					intent3.setClass(CreateName.this, CreateButton.class);
 					CreateName.this.startActivity(intent3);
-				}else{
-					Toast.makeText(CreateName.this,
-	                        "can't be the same!", Toast.LENGTH_SHORT)
-	                        .show();
-				}
+				
 			}
 		}
 		
