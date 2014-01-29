@@ -32,6 +32,7 @@ public class PreBut extends Activity {
 	private ArrayAdapter<HisView> adapter;
 	private ArrayList<HisView> useOnly;
 	private ArrayList<HisView> useList;
+	private ArrayList<HisView> useUse;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -62,7 +63,7 @@ public class PreBut extends Activity {
 		super.onStart();
 		loadFromFile();
 		adapter = new ArrayAdapter<HisView>(this,
-				R.layout.list_item, useOnly);
+				R.layout.list_item, useList);
 		listB.setAdapter(adapter);
 	}
 
@@ -78,22 +79,37 @@ public class PreBut extends Activity {
 			while (line != null) {
 				System.out.println(line);
 				HisView json=gson.fromJson(line, HisView.class);
-				useOnly.add(json);
+				//useOnly.add(json);
 				tweets.add(json);
 				line = in.readLine();
 			}
-			//remove duplicate
-			for(int i=0;i<useOnly.size();i++){
-				for(int j=0;j<tweets.size();j++){
-					if(useOnly.get(i).clikName().equals(tweets.get(j).clikName())){
-							if(useOnly.get(i).clic()<tweets.get(j).clic()){
-								useOnly.remove(useOnly.get(i));
-							}else{
-								//useOnly.remove(useOnly.get(j));
-							}
-						
+		
+			while(tweets.size()>0){
+				int index1=0;
+				useUse = new ArrayList<HisView>();
+				String Name = tweets.get(index1).clikName();
+				while(index1<tweets.size()){
+					if(tweets.get(index1).clikName().equals(Name)){
+						useUse.add(tweets.get(index1));
+						tweets.remove(tweets.get(index1));
+					}else{
+						index1++;
 					}
 				}
+				int index3=0;
+				int index4=0;
+				int checkkk=0;
+				while(index3<useUse.size()){
+					if(useUse.get(index3).clic()>index4){
+						index4 = useUse.get(index3).clic();
+						checkkk=index3;
+						index3++;
+					}else{
+						index3++;
+				
+					}
+				}
+				useOnly.add(useUse.get(checkkk));	
 			}
 			//sort
 			//useList=new ArrayList<HisView>() ;
