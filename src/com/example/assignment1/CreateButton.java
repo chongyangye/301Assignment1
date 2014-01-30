@@ -22,6 +22,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.google.gson.Gson;
 
 public class CreateButton extends Activity{
@@ -54,7 +56,7 @@ public class CreateButton extends Activity{
 		final TextView text = (TextView)findViewById(R.id.textView1);
 		text.setText("\n"+clicked);
 		button1 =(Button)findViewById(R.id.button1);
-		button1.setText("add");
+		button1.setText("Add");
 		button1.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
@@ -70,7 +72,7 @@ public class CreateButton extends Activity{
 			}
 		});
 		button3 =(Button)findViewById(R.id.button3);
-		button3.setText("reset");
+		button3.setText("Reset/Remove");
 		button3.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -78,6 +80,19 @@ public class CreateButton extends Activity{
 				// TODO Auto-generated method stub
 				clicked=0;
 				text.setText("\n"+clicked);
+				Toast.makeText(CreateButton.this,
+                        bodyText+" has been removed", Toast.LENGTH_SHORT)
+                        .show();
+				cleanFile();
+				for(int j=0;j<tweets.size();j++){
+					if(tweets.get(j).clikName().equals(bodyText)){
+						continue;
+					}else{
+						DataObject obj = new DataObject(tweets.get(j).clikName(), tweets.get(j).date2(), tweets.get(j).clic());
+						saveInFile(obj);
+					}
+				}
+				
 			}
 		});
 		button4 =(Button)findViewById(R.id.button4);
@@ -98,7 +113,25 @@ public class CreateButton extends Activity{
 				R.layout.list_item, tweets);
 		oldTweetsList.setAdapter(adapter);
 	}
-
+	
+	private void cleanFile(){
+		try {
+            FileOutputStream fos = openFileOutput(FILENAME,
+					Context.MODE_PRIVATE);
+			BufferedWriter out = new BufferedWriter(new OutputStreamWriter(fos));
+			out.write("");
+			//fos.write(ginf.getBytes());
+			//System.out.println(ginf);
+			out.close();
+			fos.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	private void loadFromFile() {
 		tweets = new ArrayList<DataObject>();
 		try {
