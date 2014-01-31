@@ -16,7 +16,7 @@ import android.view.Menu;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-
+//We use this activity to view the history of the statistics of the counter
 public class StatView extends Activity {
 	private static final String FILENAME = "file6.sav";
 	private TextView testViewTitle;
@@ -52,6 +52,7 @@ public class StatView extends Activity {
 				ccc++;
 			}
 		}
+		//counter by hour
 		if(checkNum==1){
 			outPut = new ArrayList<String>();
 			int countH=0;
@@ -109,7 +110,7 @@ public class StatView extends Activity {
 			listViewDate.setAdapter(adapter);
 		}
 		
-		
+		//count by day
 		if(checkNum==2){
 			outPut = new ArrayList<String>();
 			int countH=0;
@@ -157,7 +158,7 @@ public class StatView extends Activity {
 		
 		
 		
-		
+		//count by week
 		
 		if(checkNum==3){
 			outPut = new ArrayList<String>();
@@ -200,7 +201,7 @@ public class StatView extends Activity {
 					R.layout.list_item, outPut);
 			listViewDate.setAdapter(adapter);
 		}
-		
+		//count by month
 		
 		if(checkNum==4){
 			outPut = new ArrayList<String>();
@@ -244,7 +245,7 @@ public class StatView extends Activity {
 	}
 
 	
-		
+	//each time when we get into this activity, we load file first.	
 	
 	private void loadFromFile() {
 		tweetss = new ArrayList<DataObject>();

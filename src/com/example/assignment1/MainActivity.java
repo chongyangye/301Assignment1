@@ -16,7 +16,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
-	
+	//This activity is main menu, contains two buttons create button and view history
 	private Button myButton = null;
 	private Button buttonPre = null;
 	int clickedd=0;
@@ -38,6 +38,7 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
+	//once we click this button, will check if file is empty or exists and jump to another activity called PreBut 
 	class PreButtonListener implements OnClickListener{
 		@Override
 		public void onClick(View v) {
@@ -70,6 +71,7 @@ public class MainActivity extends Activity {
 			
 		}
 	}
+	//Once we click this button we jump to the create name activity.
 	class MyButtonListener implements OnClickListener{
 
 		@Override

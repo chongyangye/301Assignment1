@@ -19,7 +19,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
+//create a new counter and if the counter is exists, can not do it
 public class CreateName extends MainActivity {
 	private static final String FILENAME = "file6.sav";
 	private EditText title;
@@ -42,6 +42,7 @@ public class CreateName extends MainActivity {
 		buttonSave.setOnClickListener(new buttonSaveListener());
 		
 	}
+	//load file and save it to tweetss arrayList
 	private void loadFromFile() {
 		tweetss = new ArrayList<DataObject>();
 		try {
@@ -68,6 +69,7 @@ public class CreateName extends MainActivity {
 		}
 		//return tweets.toArray(new String[tweets.size()]);
 	}
+	//once we click save, check the duplicate and jump to next activity
 	class buttonSaveListener implements OnClickListener{
 
 		@Override

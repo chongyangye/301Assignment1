@@ -22,7 +22,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
+//in this activity, we could rename the counter and go back to "add" activity
 public class ReName extends CreateButton {
 	private static final String FILENAME = "file6.sav";
 	private EditText title1;
@@ -50,6 +50,7 @@ public class ReName extends CreateButton {
 		buttonSave1.setText("Save");
 		buttonSave1.setOnClickListener(new buttonSave1Listener());
 	}
+	//load file and save it to tweetss araylist
 	private void loadFromFile() {
 		tweetss = new ArrayList<DataObject>();
 		try {
@@ -76,6 +77,7 @@ public class ReName extends CreateButton {
 		}
 		//return tweets.toArray(new String[tweets.size()]);
 	}
+	//save file after modified the name
 	private void SaveFile(DataObject obj){
 		try {
             FileOutputStream fos = openFileOutput(FILENAME,
@@ -95,7 +97,7 @@ public class ReName extends CreateButton {
 			e.printStackTrace();
 		}
 	}
-	
+	//clean the file
 	private void cleanFile(){
 		try {
             FileOutputStream fos = openFileOutput(FILENAME,
@@ -114,6 +116,7 @@ public class ReName extends CreateButton {
 			e.printStackTrace();
 		}
 	}
+	//check if the name is duplicated or empty then jump back
 	class buttonSave1Listener implements OnClickListener{
 
 		@Override

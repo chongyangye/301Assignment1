@@ -21,7 +21,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-
+//History of the clickers
 public class PreBut extends Activity {
 	private static final String FILENAME = "file6.sav";
 	private int putNum=0;
@@ -57,6 +57,7 @@ public class PreBut extends Activity {
 		
 		});
 	}
+	//Onstart function
 	@Override
 	protected void onStart() {
 		// TODO Auto-generated method stub
@@ -66,7 +67,7 @@ public class PreBut extends Activity {
 				R.layout.list_item, useList);
 		listB.setAdapter(adapter);
 	}
-
+	//load file and remove duplicate as well as sort the arrayList
 	private void loadFromFile() {
 		tweets = new ArrayList<HisView>();
 		useOnly = new ArrayList<HisView>();

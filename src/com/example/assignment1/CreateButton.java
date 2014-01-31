@@ -25,7 +25,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
-
+//In this activity, we can add, remove, reset, rename, and view history of the current counter.
 public class CreateButton extends Activity{
 
 	private static final String FILENAME = "file6.sav";
@@ -108,7 +108,7 @@ public class CreateButton extends Activity{
 		button5.setText("back to main menu");
 		button5.setOnClickListener(new button5Listener());
 	}
-
+//use adapter to show the click history
 	@Override
 	protected void onStart() {
 		// TODO Auto-generated method stub
@@ -118,7 +118,7 @@ public class CreateButton extends Activity{
 				R.layout.list_item, tweets);
 		oldTweetsList.setAdapter(adapter);
 	}
-	
+	//clean the file and we will save the new data again later
 	private void cleanFile(){
 		try {
             FileOutputStream fos = openFileOutput(FILENAME,
@@ -137,6 +137,7 @@ public class CreateButton extends Activity{
 			e.printStackTrace();
 		}
 	}
+	//load file to the tweets arrayList
 	private void loadFromFile() {
 		tweets = new ArrayList<DataObject>();
 		try {
@@ -163,7 +164,7 @@ public class CreateButton extends Activity{
 		}
 		//return tweets.toArray(new String[tweets.size()]);
 	}
-	
+	//save file.
 	private void saveInFile(DataObject obj) {
 		try {
             
@@ -185,6 +186,7 @@ public class CreateButton extends Activity{
 			e.printStackTrace();
 		}
 	}
+	//View statistic button
 	class button6Listener implements OnClickListener{
 		@Override
 		public void onClick(View v) {
@@ -195,6 +197,7 @@ public class CreateButton extends Activity{
 			CreateButton.this.startActivity(inteee);
 		}
 	}
+	//Rename button
 	class button4Listener implements OnClickListener{
 		@Override
 		public void onClick(View v) {
@@ -207,6 +210,7 @@ public class CreateButton extends Activity{
 			
 		}
 	}
+	//back to main menu button
 	class button5Listener implements OnClickListener{
 		@Override
 		public void onClick(View v) {

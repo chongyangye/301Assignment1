@@ -1,7 +1,7 @@
 package com.example.assignment1;
 
 import java.util.Date;
-
+//this a kind of Datatype
 public class DataObject {
 	private String name;
 	private Date date1;

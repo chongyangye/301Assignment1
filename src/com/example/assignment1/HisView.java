@@ -1,7 +1,7 @@
 package com.example.assignment1;
 
 import java.util.Date;
-
+//this is a data type 
 public class HisView {
 	private String name;
 	private Date date1;

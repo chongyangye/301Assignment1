@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
-
+//in this activity, user have to decided the method of statistic:hour,day,week,month
 public class StatButton extends Activity {
 	private Button buttonH;
 	private Button buttonD;
@@ -43,6 +43,7 @@ public class StatButton extends Activity {
 		
 		
 	}
+	//month
 	class buttonMListener implements OnClickListener{
 		@Override
 		public void onClick(View v) {
@@ -55,6 +56,7 @@ public class StatButton extends Activity {
 			StatButton.this.startActivity(intt3);
 		}
 	}
+	//week
 	class buttonWListener implements OnClickListener{
 		@Override
 		public void onClick(View v) {
@@ -67,6 +69,7 @@ public class StatButton extends Activity {
 			StatButton.this.startActivity(intt2);
 		}
 	}
+	//day
 	class buttonDListener implements OnClickListener{
 		@Override
 		public void onClick(View v) {
@@ -79,6 +82,7 @@ public class StatButton extends Activity {
 			StatButton.this.startActivity(intt1);
 		}
 	}
+	//hour
 	class buttonHListener implements OnClickListener{
 		@Override
 		public void onClick(View v) {
