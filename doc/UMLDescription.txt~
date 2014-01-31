@@ -1,0 +1,23 @@
+Activity: Main
+Description: There are two buttons in this activity, one could jump to create name activity then we could create a new counter, the other could jump to history of the counters.
+
+Activity: CreateName
+Description: Start to check if the name is exists or not, then create the counter
+
+Activity: CreateButton
+Description: User could add, remove, reset, rename, view statistic of the current counter
+
+Activity: ReName
+Description: Rename the current counter and check if the name is already exists.
+
+Activity: HisView
+Description: A datatype that we need to use in viewing the history of the counter and statistics, contains only counter name and numbers that has been clicked.
+
+Activity: DataObject
+Description: A datatype that we need to use in viewing the clicked time of the counter and statistics, contains only counter name time clicked and numbers that has been clicked.
+
+Activity: PreBut
+Description: Show the previous counters, first load from file and sort and remove duplicate
+
+Activity: StatButton
+Description: Provide 4 choices for users, hour, day, week and month

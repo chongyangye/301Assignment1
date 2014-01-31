@@ -22,6 +22,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 //History of the clickers
+/**
+ * @uml.dependency   supplier="com.example.assignment1.HisView"
+ * @uml.dependency   supplier="com.example.assignment1.StatButton"
+ */
 public class PreBut extends Activity {
 	private static final String FILENAME = "file6.sav";
 	private int putNum=0;

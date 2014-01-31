@@ -1,7 +1,6 @@
 package com.example.assignment1;
 
 import android.os.Bundle;
-import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
@@ -9,7 +8,10 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 //in this activity, user have to decided the method of statistic:hour,day,week,month
-public class StatButton extends Activity {
+/**
+ * @uml.dependency   supplier="com.example.assignment1.MainActivity"
+ */
+public class StatButton extends MainActivity {
 	private Button buttonH;
 	private Button buttonD;
 	private Button buttonW;
