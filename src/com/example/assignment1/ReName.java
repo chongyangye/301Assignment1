@@ -45,9 +45,7 @@ public class ReName extends CreateButton {
 		clicke =intent6.getIntExtra("four", clicked);
 		//original name stored in titleStr1
 		titleStr2 = intent6.getStringExtra("three");
-		Toast.makeText(ReName.this,
-                titleStr2, Toast.LENGTH_SHORT)
-                .show();
+		
 		factorOne1.setText("Rename");
 		buttonSave1.setText("Save");
 		buttonSave1.setOnClickListener(new buttonSave1Listener());

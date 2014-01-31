@@ -34,6 +34,14 @@
             android:name="com.example.assignment1.EmptyFile"
             android:label="@string/title_activity_empty_file" >
         </activity>
+        <activity
+            android:name="com.example.assignment1.StatButton"
+            android:label="@string/title_activity_stat_button" >
+        </activity>
+        <activity
+            android:name="com.example.assignment1.StatView"
+            android:label="@string/title_activity_stat_view" >
+        </activity>
     </application>
 
 </manifest>

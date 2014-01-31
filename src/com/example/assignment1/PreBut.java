@@ -38,7 +38,7 @@ public class PreBut extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_pre_but);
 		titleB=(TextView)findViewById(R.id.textViewHis);
-		titleB.setText("History of Buttons");
+		titleB.setText("History of Buttons,Click Counter to Continue");
 		listB=(ListView)findViewById(R.id.listViewHis);
 		listB.setOnItemClickListener(new OnItemClickListener() {
 

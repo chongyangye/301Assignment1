@@ -36,6 +36,7 @@ public class CreateButton extends Activity{
 	private Button button3;
 	private Button button4;
 	private Button button5; 
+	private Button button6;
 	private TextView titleView1;
 	private ArrayList<DataObject> tweets;
 	private ArrayAdapter<DataObject> adapter;
@@ -98,6 +99,10 @@ public class CreateButton extends Activity{
 		button4 =(Button)findViewById(R.id.button4);
 		button4.setText(R.string.rename);
 		button4.setOnClickListener(new button4Listener());
+		
+		button6=(Button)findViewById(R.id.button6);
+		button6.setText("Counter Detail");
+		button6.setOnClickListener(new button6Listener());
 		
 		button5 =(Button)findViewById(R.id.button5);
 		button5.setText("back to main menu");
@@ -178,6 +183,16 @@ public class CreateButton extends Activity{
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+	}
+	class button6Listener implements OnClickListener{
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			Intent inteee=getIntent();
+			inteee.putExtra("name1", bodyText);
+			inteee.setClass(CreateButton.this, StatButton.class);
+			CreateButton.this.startActivity(inteee);
 		}
 	}
 	class button4Listener implements OnClickListener{
